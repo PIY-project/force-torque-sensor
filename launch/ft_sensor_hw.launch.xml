@@ -15,7 +15,7 @@
   <group ns="$(arg name)">
     <node  name="ft_sensor_hw" pkg="force_torque_sensor" type="ati_sensor_node" respawn="true" output="screen">
       <param name="ip" value="$(arg ip)"/>
-      <param name="name" value="$(arg name)" />
+      <param name="name" value="ati_FT" />
       <param name="type" value="$(arg type)" />
       <param name="frame_id" value="$(arg frame_id)" />
       <param name="safety_topic" value="$(arg safety_topic)" />

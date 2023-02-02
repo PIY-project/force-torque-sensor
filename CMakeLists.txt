@@ -20,6 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
   hardware_interface
   force_torque_sensor_controller
   cmake_modules
+  rpwc_msgs
 )
 
 catkin_package()
@@ -57,3 +58,7 @@ add_executable(ati_sensor_node src/ati_sensor_node.cpp src/ati_ft_sensor_hw.cpp)
 add_dependencies(ati_sensor_node FTSensors)
 target_link_libraries(ati_sensor_node FTSensors ${catkin_LIBRARIES} ${EIGEN_LIBRARIES})
 # target_link_libraries(ati_sensor_node /home/manuelb/manuelb_ws/devel/lib/libFTSensors.so ${catkin_LIBRARIES})
+
+add_executable(ati_bridge_node src/ati_bridge.cpp)
+add_dependencies(ati_bridge_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(ati_bridge_node ${catkin_LIBRARIES})
